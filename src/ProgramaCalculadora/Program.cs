@@ -1,5 +1,5 @@
 ﻿double n1, n2;
-int opcao = 0;
+int continua = 1;
 
 Console.WriteLine("Informe o primeiro número a ser calculado: ");
 n1 = double.Parse(Console.ReadLine());
@@ -20,41 +20,44 @@ int Menu()
 }
 
 
-void Soma()
+double Soma()
 {
     Console.WriteLine("A soma dos números é " + (n1 + n2));
-    Console.ReadLine();
+    Console.WriteLine("Digite qualquer tecla");
+    return double.Parse(Console.ReadLine());
 }
 
-void Subtracao()
+double Subtracao()
 {
     Console.WriteLine("A soma dos números é  " + (n1 - n2));
-    Console.ReadLine();
+    Console.WriteLine("Digite outro numero para realizar a calculadora realizar a operação");
+    return double.Parse(Console.ReadLine());
 }
-void Multiplicacao()
+double Multiplicacao()
 {
     Console.WriteLine("A multiplicação dos números é: " + (n1 * n2));
-    Console.ReadLine();
+    Console.WriteLine("Digite outro numero para realizar a calculadora realizar a operação");
+    return double.Parse(Console.ReadLine());
 }
 
-void Divisao()
+double Divisao()
 {
     Console.WriteLine("A divisão dos números é: " + (n1 / n2));
-    Console.ReadLine();
+    Console.WriteLine("Digite outro numero para realizar a calculadora realizar a operação");
+    return double.Parse(Console.ReadLine());
 }
 
 
 
-while (opcao != 5)
-{
-    opcao = Menu();
 
-    switch (opcao)
+while (continua == 1)
+{
+
+    switch (Menu())
     {
 
         default:
             Console.WriteLine("Opção Inválida");
-            Console.ReadLine();
             break;
 
         case 1:
@@ -72,7 +75,7 @@ while (opcao != 5)
             break;
         case 5:
             Console.WriteLine("Obrigada por usar a calculadora. Até logo!");
-            Console.ReadLine();
+            continua = 0;
             break;
 
     }
